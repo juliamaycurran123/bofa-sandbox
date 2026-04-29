@@ -1,0 +1,19 @@
+<ds-page-header [title]="'Welcome back, ' + customerName" subtitle="Here's a summary of your accounts">
+  <ds-button variant="primary" [routerLink]="['/transfers']">Make a Transfer</ds-button>
+</ds-page-header>
+
+<ds-card title="Total Balance">
+  <h2 class="cv-dashboard__total">
+    <ds-currency [amount]="totalBalance"></ds-currency>
+  </h2>
+  <p class="cv-dashboard__total-caption">Across all linked accounts</p>
+</ds-card>
+
+<div class="cv-dashboard__accounts">
+  <ds-card *ngFor="let account of accounts$ | async" [title]="account.nickname" [subtitle]="account.type + ' •••• ' + account.mask">
+    <div class="cv-dashboard__account-balance">
+      <ds-currency [amount]="account.balance"></ds-currency>
+    </div>
+    <ds-button variant="tertiary" size="sm" [routerLink]="['/accounts', account.accountId]">View details</ds-button>
+  </ds-card>
+</div>

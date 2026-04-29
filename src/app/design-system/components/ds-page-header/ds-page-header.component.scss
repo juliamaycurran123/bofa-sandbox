@@ -1,0 +1,22 @@
+@import '../../tokens/spacing';
+@import '../../tokens/colors';
+
+.ds-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: $cv-spacing-md;
+  margin-bottom: $cv-spacing-lg;
+  border-bottom: 1px solid $cv-color-border;
+}
+
+.ds-page-header__text h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ds-page-header__text p {
+  margin: $cv-spacing-xs 0 0;
+  color: $cv-color-text-muted;
+}

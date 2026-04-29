@@ -1,0 +1,20 @@
+<table mat-table [dataSource]="rows" class="ds-data-table" *ngIf="rows.length > 0; else empty">
+  <ng-container *ngFor="let col of columns" [matColumnDef]="col.key">
+    <th mat-header-cell *matHeaderCellDef [class.ds-align-right]="col.align === 'right'">
+      {{ col.header }}
+    </th>
+    <td mat-cell *matCellDef="let row" [class.ds-align-right]="col.align === 'right'">
+      <ng-container [ngSwitch]="col.type">
+        <ds-currency *ngSwitchCase="'currency'" [amount]="row[col.key]"></ds-currency>
+        <span *ngSwitchCase="'date'">{{ row[col.key] | date:'mediumDate' }}</span>
+        <span *ngSwitchDefault>{{ row[col.key] }}</span>
+      </ng-container>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnKeys"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnKeys"></tr>
+</table>
+
+<ng-template #empty>
+  <div class="ds-data-table__empty">{{ emptyMessage }}</div>
+</ng-template>

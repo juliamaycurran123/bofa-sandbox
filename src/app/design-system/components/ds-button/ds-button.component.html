@@ -1,0 +1,13 @@
+<button
+  mat-raised-button
+  [color]="matColor"
+  [disabled]="disabled || loading"
+  [type]="type"
+  [attr.aria-label]="ariaLabel"
+  [class.ds-btn--sm]="size === 'sm'"
+  [class.ds-btn--lg]="size === 'lg'"
+  (click)="onClick($event)"
+>
+  <mat-spinner *ngIf="loading" diameter="16" class="ds-btn__spinner"></mat-spinner>
+  <ng-content *ngIf="!loading"></ng-content>
+</button>

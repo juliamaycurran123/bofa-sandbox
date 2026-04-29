@@ -1,0 +1,5 @@
+<span class="ds-currency" [class.ds-currency--negative]="isNegative" [class.ds-currency--positive]="!isNegative && showSign">
+  <span *ngIf="isNegative">-</span>
+  <span *ngIf="!isNegative && showSign">+</span>
+  {{ displayValue | currency:currency }}
+</span>

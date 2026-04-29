@@ -1,0 +1,15 @@
+@import '../../tokens/colors';
+@import '../../tokens/spacing';
+
+:host {
+  display: block;
+  margin-bottom: $cv-spacing-md;
+}
+
+.ds-card--flat {
+  box-shadow: none !important;
+  border: 1px solid $cv-color-border;
+}
+
+.ds-card--sm mat-card-content { padding: $cv-spacing-sm; }
+.ds-card--lg mat-card-content { padding: $cv-spacing-lg; }

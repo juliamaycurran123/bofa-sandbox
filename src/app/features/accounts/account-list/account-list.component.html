@@ -1,0 +1,19 @@
+<ds-page-header title="Your Accounts" subtitle="All deposit, credit, and loan accounts in one place"></ds-page-header>
+
+<ng-container *ngIf="accounts$ | async as accounts; else loading">
+  <ds-card *ngFor="let account of accounts" [title]="account.nickname" [subtitle]="formatType(account.type) + ' •••• ' + account.mask">
+    <div class="cv-account-list__row">
+      <div>
+        <div class="cv-account-list__balance-label">Current balance</div>
+        <div class="cv-account-list__balance">
+          <ds-currency [amount]="account.balance"></ds-currency>
+        </div>
+      </div>
+      <ds-button variant="tertiary" [routerLink]="[account.accountId]">View activity</ds-button>
+    </div>
+  </ds-card>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner diameter="32"></mat-spinner>
+</ng-template>

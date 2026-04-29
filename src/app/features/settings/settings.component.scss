@@ -1,0 +1,15 @@
+@import '../../design-system/tokens/spacing';
+@import '../../design-system/tokens/colors';
+
+.cv-settings__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $cv-spacing-md 0;
+
+  p {
+    margin: $cv-spacing-xs 0 0;
+    color: $cv-color-text-muted;
+    font-size: 13px;
+  }
+}

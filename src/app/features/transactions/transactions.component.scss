@@ -1,0 +1,12 @@
+@import '../../design-system/tokens/spacing';
+
+.cv-txn-filters {
+  display: flex;
+  gap: $cv-spacing-md;
+  margin-bottom: $cv-spacing-md;
+
+  mat-form-field {
+    flex: 1;
+    min-width: 200px;
+  }
+}

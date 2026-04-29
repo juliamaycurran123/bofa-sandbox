@@ -1,0 +1,41 @@
+<ds-page-header title="Settings" subtitle="Manage notifications and account preferences"></ds-page-header>
+
+<ds-card title="Notifications">
+  <div class="cv-settings__row">
+    <div>
+      <strong>Transaction alerts</strong>
+      <p>Get notified about every posted transaction.</p>
+    </div>
+    <mat-slide-toggle [(ngModel)]="notifications.transactionAlerts" (change)="onToggle('transactionAlerts')"></mat-slide-toggle>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="cv-settings__row">
+    <div>
+      <strong>Fraud alerts</strong>
+      <p>Required by federal regulation. Cannot be disabled.</p>
+    </div>
+    <mat-slide-toggle [(ngModel)]="notifications.fraudAlerts" disabled></mat-slide-toggle>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="cv-settings__row">
+    <div>
+      <strong>Promotional emails</strong>
+      <p>Product updates and offers from ClearVault.</p>
+    </div>
+    <mat-slide-toggle [(ngModel)]="notifications.promotional" (change)="onToggle('promotional')"></mat-slide-toggle>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="cv-settings__row">
+    <div>
+      <strong>Statement ready</strong>
+      <p>Email when monthly statements are available.</p>
+    </div>
+    <mat-slide-toggle [(ngModel)]="notifications.statementReady" (change)="onToggle('statementReady')"></mat-slide-toggle>
+  </div>
+</ds-card>

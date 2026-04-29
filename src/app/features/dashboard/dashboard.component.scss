@@ -1,0 +1,23 @@
+@import '../../design-system/tokens/spacing';
+
+.cv-dashboard__total {
+  font-size: 32px;
+  margin: 0;
+}
+
+.cv-dashboard__total-caption {
+  color: rgba(0, 0, 0, 0.6);
+  margin: $cv-spacing-xs 0 0;
+}
+
+.cv-dashboard__accounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $cv-spacing-md;
+  margin-top: $cv-spacing-lg;
+}
+
+.cv-dashboard__account-balance {
+  font-size: 20px;
+  margin-bottom: $cv-spacing-sm;
+}

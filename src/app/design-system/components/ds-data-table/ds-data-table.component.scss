@@ -1,0 +1,16 @@
+@import '../../tokens/colors';
+@import '../../tokens/spacing';
+
+.ds-data-table {
+  width: 100%;
+}
+
+.ds-align-right {
+  text-align: right;
+}
+
+.ds-data-table__empty {
+  padding: $cv-spacing-lg;
+  text-align: center;
+  color: $cv-color-text-muted;
+}

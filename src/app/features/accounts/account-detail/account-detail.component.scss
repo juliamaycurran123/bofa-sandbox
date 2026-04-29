@@ -1,0 +1,12 @@
+@import '../../../design-system/tokens/spacing';
+@import '../../../design-system/tokens/colors';
+
+.cv-account-detail__balance {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.cv-account-detail__available {
+  margin-top: $cv-spacing-xs;
+  color: $cv-color-text-muted;
+}

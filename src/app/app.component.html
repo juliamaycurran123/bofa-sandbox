@@ -1,0 +1,24 @@
+<div class="cv-app-container">
+  <mat-toolbar color="primary" class="cv-toolbar">
+    <span class="cv-toolbar__brand">ClearVault</span>
+    <nav class="cv-toolbar__nav">
+      <a mat-button routerLink="/dashboard" routerLinkActive="cv-nav-active">Dashboard</a>
+      <a mat-button routerLink="/accounts" routerLinkActive="cv-nav-active">Accounts</a>
+      <a mat-button routerLink="/transactions" routerLinkActive="cv-nav-active">Activity</a>
+      <a mat-button routerLink="/transfers" routerLinkActive="cv-nav-active">Transfers</a>
+      <a mat-button routerLink="/settings" routerLinkActive="cv-nav-active">Settings</a>
+    </nav>
+    <span class="cv-toolbar__spacer"></span>
+    <button mat-icon-button (click)="signOut()" aria-label="Sign out" *ngIf="auth.isAuthenticated()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <main class="cv-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="cv-footer">
+    <small>&copy; ClearVault Bank, N.A. Member FDIC. Equal Housing Lender.</small>
+  </footer>
+</div>

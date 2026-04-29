@@ -1,0 +1,22 @@
+<ng-container *ngIf="account; else loading">
+  <ds-page-header [title]="account.nickname" [subtitle]="(account.type | titlecase) + ' •••• ' + account.mask">
+    <ds-button variant="primary" [routerLink]="['/transfers']">Transfer</ds-button>
+  </ds-page-header>
+
+  <ds-card title="Balance">
+    <div class="cv-account-detail__balance">
+      <ds-currency [amount]="account.balance"></ds-currency>
+    </div>
+    <div *ngIf="account.availableBalance !== undefined" class="cv-account-detail__available">
+      Available: <ds-currency [amount]="account.availableBalance"></ds-currency>
+    </div>
+  </ds-card>
+
+  <ds-card title="Recent Activity">
+    <ds-data-table [columns]="txnColumns" [rows]="transactions"></ds-data-table>
+  </ds-card>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner diameter="32"></mat-spinner>
+</ng-template>

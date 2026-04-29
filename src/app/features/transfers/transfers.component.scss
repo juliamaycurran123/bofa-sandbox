@@ -1,0 +1,12 @@
+@import '../../design-system/tokens/spacing';
+
+.cv-transfer__field {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: $cv-spacing-md;
+}
+
+.cv-transfer__mfa h3 {
+  margin-top: 0;
+}

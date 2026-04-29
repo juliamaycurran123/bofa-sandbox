@@ -1,0 +1,9 @@
+@import '../../tokens/colors';
+
+.ds-currency {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.ds-currency--negative { color: $cv-color-danger; }
+.ds-currency--positive { color: $cv-color-success; }

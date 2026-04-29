@@ -1,0 +1,19 @@
+<ds-page-header title="Activity" subtitle="Search and filter transactions across all your accounts"></ds-page-header>
+
+<ds-card>
+  <div class="cv-txn-filters">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="search" (ngModelChange)="applyFilters()" placeholder="Description...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="category" (ngModelChange)="applyFilters()">
+        <mat-option *ngFor="let c of categories" [value]="c">{{ c }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <ds-data-table [columns]="columns" [rows]="filtered" emptyMessage="No transactions match your filters"></ds-data-table>
+</ds-card>

@@ -1,0 +1,32 @@
+@import './design-system/tokens/colors';
+@import './design-system/tokens/spacing';
+
+.cv-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  &__brand {
+    font-weight: 600;
+    margin-right: $cv-spacing-lg;
+  }
+
+  &__nav a {
+    margin-right: $cv-spacing-sm;
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+}
+
+.cv-nav-active {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cv-footer {
+  padding: $cv-spacing-md;
+  text-align: center;
+  color: $cv-color-text-muted;
+  border-top: 1px solid $cv-color-border;
+}
