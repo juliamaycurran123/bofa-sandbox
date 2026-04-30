@@ -19,10 +19,13 @@ import { DsPageHeaderComponent } from './components/ds-page-header/ds-page-heade
 
 const COMPONENTS = [
   DsButtonComponent,
-  DsCardComponent,
   DsDataTableComponent,
   DsCurrencyComponent,
   DsPageHeaderComponent
+];
+
+const STANDALONE_COMPONENTS = [
+  DsCardComponent
 ];
 
 const MATERIAL = [
@@ -48,7 +51,7 @@ const MATERIAL = [
  */
 @NgModule({
   declarations: COMPONENTS,
-  imports: [CommonModule, ...MATERIAL],
-  exports: [...COMPONENTS, ...MATERIAL]
+  imports: [CommonModule, ...MATERIAL, ...STANDALONE_COMPONENTS],
+  exports: [...COMPONENTS, ...STANDALONE_COMPONENTS, ...MATERIAL]
 })
 export class DesignSystemModule {}

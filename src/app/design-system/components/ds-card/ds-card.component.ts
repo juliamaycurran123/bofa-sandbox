@@ -1,9 +1,12 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'ds-card',
+  standalone: true,
+  imports: [MatCardModule],
   templateUrl: './ds-card.component.html',
-  styleUrls: ['./ds-card.component.scss'],
+  styleUrl: './ds-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DsCardComponent {
