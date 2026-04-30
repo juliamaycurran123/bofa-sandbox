@@ -15,15 +15,27 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2020",
+    "target": "ES2022",
     "module": "ES2020",
-    "lib": ["ES2020", "dom"],
+    "lib": [
+      "ES2020",
+      "dom"
+    ],
     "paths": {
-      "@core/*": ["src/app/core/*"],
-      "@design-system/*": ["src/app/design-system/*"],
-      "@features/*": ["src/app/features/*"],
-      "@env/*": ["src/environments/*"]
-    }
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@design-system/*": [
+        "src/app/design-system/*"
+      ],
+      "@features/*": [
+        "src/app/features/*"
+      ],
+      "@env/*": [
+        "src/environments/*"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
