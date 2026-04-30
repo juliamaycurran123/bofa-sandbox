@@ -36,43 +36,43 @@ describe('DsCardComponent', () => {
   });
 
   it('should render header when title is set', () => {
-    component.title = 'Account Summary';
+    fixture.componentRef.setInput('title', 'Account Summary');
     fixture.detectChanges();
     const el: HTMLElement = fixture.nativeElement;
     expect(el.querySelector('mat-card-title')?.textContent).toContain('Account Summary');
   });
 
   it('should render subtitle when both title and subtitle are set', () => {
-    component.title = 'Account Summary';
-    component.subtitle = 'Last 30 days';
+    fixture.componentRef.setInput('title', 'Account Summary');
+    fixture.componentRef.setInput('subtitle', 'Last 30 days');
     fixture.detectChanges();
     const el: HTMLElement = fixture.nativeElement;
     expect(el.querySelector('mat-card-subtitle')?.textContent).toContain('Last 30 days');
   });
 
   it('should not render subtitle when only subtitle is set without title', () => {
-    component.subtitle = 'Last 30 days';
+    fixture.componentRef.setInput('subtitle', 'Last 30 days');
     fixture.detectChanges();
     const el: HTMLElement = fixture.nativeElement;
     expect(el.querySelector('mat-card-subtitle')).toBeNull();
   });
 
   it('should apply flat class when elevated is false', () => {
-    component.elevated = false;
+    fixture.componentRef.setInput('elevated', false);
     fixture.detectChanges();
     const card = fixture.nativeElement.querySelector('mat-card');
     expect(card.classList.contains('ds-card--flat')).toBe(true);
   });
 
   it('should apply sm class when padding is sm', () => {
-    component.padding = 'sm';
+    fixture.componentRef.setInput('padding', 'sm');
     fixture.detectChanges();
     const card = fixture.nativeElement.querySelector('mat-card');
     expect(card.classList.contains('ds-card--sm')).toBe(true);
   });
 
   it('should apply lg class when padding is lg', () => {
-    component.padding = 'lg';
+    fixture.componentRef.setInput('padding', 'lg');
     fixture.detectChanges();
     const card = fixture.nativeElement.querySelector('mat-card');
     expect(card.classList.contains('ds-card--lg')).toBe(true);
