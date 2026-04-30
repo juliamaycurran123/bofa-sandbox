@@ -17,8 +17,11 @@ import { DsDataTableComponent } from './components/ds-data-table/ds-data-table.c
 import { DsCurrencyComponent } from './components/ds-currency/ds-currency.component';
 import { DsPageHeaderComponent } from './components/ds-page-header/ds-page-header.component';
 
-const COMPONENTS = [
-  DsButtonComponent,
+/** Standalone components — imported, not declared */
+const STANDALONE = [DsButtonComponent];
+
+/** Legacy (non-standalone) components — still declared */
+const DECLARED_COMPONENTS = [
   DsCardComponent,
   DsDataTableComponent,
   DsCurrencyComponent,
@@ -38,17 +41,9 @@ const MATERIAL = [
   MatDividerModule
 ];
 
-/**
- * Shared internal component library.
- *
- * Consumed by all feature modules in this app, and also published as
- * `@clearvault/design-system` for use in 6+ downstream apps.
- *
- * Breaking changes here block downstream builds — coordinate via #design-system-changes.
- */
 @NgModule({
-  declarations: COMPONENTS,
-  imports: [CommonModule, ...MATERIAL],
-  exports: [...COMPONENTS, ...MATERIAL]
+  declarations: DECLARED_COMPONENTS,
+  imports: [CommonModule, ...MATERIAL, ...STANDALONE],
+  exports: [...DECLARED_COMPONENTS, ...STANDALONE, ...MATERIAL]
 })
 export class DesignSystemModule {}

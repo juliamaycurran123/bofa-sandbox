@@ -8,6 +8,9 @@
   [class.ds-btn--lg]="size === 'lg'"
   (click)="onClick($event)"
 >
-  <mat-spinner *ngIf="loading" diameter="16" class="ds-btn__spinner"></mat-spinner>
-  <ng-content *ngIf="!loading"></ng-content>
+  @if (loading) {
+    <mat-spinner diameter="16" class="ds-btn__spinner"></mat-spinner>
+  } @else {
+    <ng-content></ng-content>
+  }
 </button>
