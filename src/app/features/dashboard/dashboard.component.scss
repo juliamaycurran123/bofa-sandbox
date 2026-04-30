@@ -21,3 +21,59 @@
   font-size: 20px;
   margin-bottom: $cv-spacing-sm;
 }
+
+.cv-dashboard__activity {
+  margin-top: $cv-spacing-lg;
+}
+
+.cv-dashboard__activity-subtitle {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+  margin: 0 0 $cv-spacing-md;
+}
+
+.cv-dashboard__no-activity {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+}
+
+.cv-dashboard__activity-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr auto;
+  gap: $cv-spacing-sm;
+  align-items: baseline;
+  padding: $cv-spacing-sm 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 13px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cv-dashboard__activity-flag {
+  font-weight: 500;
+}
+
+.cv-dashboard__activity-meta {
+  display: flex;
+  gap: $cv-spacing-sm;
+}
+
+.cv-dashboard__activity-action {
+  text-transform: capitalize;
+}
+
+.cv-dashboard__activity-env {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.cv-dashboard__activity-detail {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.cv-dashboard__activity-time {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  white-space: nowrap;
+}

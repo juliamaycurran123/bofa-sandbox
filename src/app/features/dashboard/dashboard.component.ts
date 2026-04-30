@@ -3,6 +3,8 @@ import { Observable, of } from 'rxjs';
 
 import { AnalyticsService } from '@core/analytics/analytics.service';
 import { AuthService } from '@core/auth/auth.service';
+import { AuditEntry } from '@features/feature-flags/feature-flag.model';
+import { FeatureFlagService } from '@features/feature-flags/feature-flag.service';
 
 interface AccountSummary {
   accountId: string;
@@ -20,6 +22,7 @@ interface AccountSummary {
 export class DashboardComponent implements OnInit {
   totalBalance = 0;
   accounts$: Observable<AccountSummary[]> = of([]);
+  recentFlagActivity$!: Observable<AuditEntry[]>;
   customerName = 'Sarah';
 
   // TODO: replace mock data with AccountsService once integration is finalized
@@ -29,11 +32,24 @@ export class DashboardComponent implements OnInit {
     { accountId: 'acct_003', nickname: 'Travel Rewards', type: 'Credit Card', mask: '1102', balance: -1245.62 }
   ];
 
-  constructor(private analytics: AnalyticsService, private auth: AuthService) {}
+  constructor(
+    private analytics: AnalyticsService,
+    private auth: AuthService,
+    private flagService: FeatureFlagService
+  ) {}
 
   ngOnInit(): void {
     this.analytics.trackEvent('dashboard.view');
     this.accounts$ = of(this.mockAccounts);
     this.totalBalance = this.mockAccounts.reduce((sum, a) => sum + a.balance, 0);
+    this.recentFlagActivity$ = this.flagService.getRecentActivity(10);
+  }
+
+  getFlagName(flagId: string): string {
+    return this.flagService.getFlagName(flagId);
+  }
+
+  formatAction(action: string): string {
+    return action.replace(/_/g, ' ');
   }
 }

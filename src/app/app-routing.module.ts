@@ -30,6 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./features/settings/settings.module').then((m) => m.SettingsModule)
   },
+  {
+    path: 'feature-flags',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./features/feature-flags/feature-flags.module').then((m) => m.FeatureFlagsModule)
+  },
   { path: '**', redirectTo: 'dashboard' }
 ];
 

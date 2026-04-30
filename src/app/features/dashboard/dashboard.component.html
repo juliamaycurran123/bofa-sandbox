@@ -17,3 +17,27 @@
     <ds-button variant="tertiary" size="sm" [routerLink]="['/accounts', account.accountId]">View details</ds-button>
   </ds-card>
 </div>
+
+<ds-card title="Activity" class="cv-dashboard__activity">
+  <p class="cv-dashboard__activity-subtitle">Recent feature flag changes</p>
+  <div *ngIf="recentFlagActivity$ | async as activity">
+    <div *ngIf="activity.length === 0" class="cv-dashboard__no-activity">
+      No recent feature flag activity.
+    </div>
+    <div *ngFor="let entry of activity" class="cv-dashboard__activity-row">
+      <div class="cv-dashboard__activity-flag">{{ getFlagName(entry.flagId) }}</div>
+      <div class="cv-dashboard__activity-meta">
+        <span class="cv-dashboard__activity-action">{{ formatAction(entry.action) }}</span>
+        <span class="cv-dashboard__activity-env">{{ entry.environment }}</span>
+      </div>
+      <div class="cv-dashboard__activity-detail">
+        {{ entry.changedBy }}
+        <span *ngIf="entry.previousValue && entry.newValue">: {{ entry.previousValue }} &rarr; {{ entry.newValue }}</span>
+        <span *ngIf="!entry.previousValue && entry.newValue">: added {{ entry.newValue }}</span>
+      </div>
+      <div class="cv-dashboard__activity-time">
+        {{ entry.changedAt | date:'medium' }}
+      </div>
+    </div>
+  </div>
+</ds-card>

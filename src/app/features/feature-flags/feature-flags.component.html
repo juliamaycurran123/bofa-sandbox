@@ -1,0 +1,86 @@
+<ds-page-header title="Feature Flags" subtitle="Manage feature rollouts and view audit history"></ds-page-header>
+
+<div class="cv-feature-flags__grid">
+  <ds-card *ngFor="let flag of flags$ | async" [title]="flag.name" [subtitle]="flag.environment">
+    <div class="cv-flag-card">
+      <p class="cv-flag-card__description">{{ flag.description }}</p>
+
+      <div class="cv-flag-card__controls">
+        <div class="cv-flag-card__toggle-row">
+          <span class="cv-flag-card__label">Enabled</span>
+          <mat-slide-toggle
+            [checked]="flag.enabled"
+            (change)="onToggle(flag)"
+            [attr.aria-label]="'Toggle ' + flag.name">
+          </mat-slide-toggle>
+        </div>
+
+        <div class="cv-flag-card__rollout-row">
+          <span class="cv-flag-card__label">Rollout</span>
+          <div class="cv-flag-card__rollout-input">
+            <input
+              type="number"
+              min="0"
+              max="100"
+              [value]="flag.rolloutPercentage"
+              (change)="onRolloutChange(flag, $event)"
+              class="cv-flag-card__percentage"
+              [attr.aria-label]="'Rollout percentage for ' + flag.name" />
+            <span class="cv-flag-card__percent-sign">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-flag-card__tags" *ngIf="flag.tags.length">
+        <span class="cv-flag-card__tag" *ngFor="let tag of flag.tags">{{ tag }}</span>
+      </div>
+
+      <div class="cv-flag-card__audit">
+        <h4 class="cv-flag-card__audit-title">Recent Activity</h4>
+        <div *ngIf="getAuditEntries(flag.flagId) | async as entries">
+          <div *ngIf="entries.length === 0" class="cv-flag-card__no-activity">
+            No activity recorded yet.
+          </div>
+          <div *ngFor="let entry of entries" class="cv-flag-card__audit-entry">
+            <div class="cv-flag-card__audit-meta">
+              <span class="cv-flag-card__audit-action">{{ formatAction(entry.action) }}</span>
+              <span class="cv-flag-card__audit-env">{{ entry.environment }}</span>
+            </div>
+            <div class="cv-flag-card__audit-detail">
+              <span>{{ entry.changedBy }}</span>
+              <span *ngIf="entry.previousValue && entry.newValue"> changed from <strong>{{ entry.previousValue }}</strong> to <strong>{{ entry.newValue }}</strong></span>
+              <span *ngIf="!entry.previousValue && entry.newValue"> added <strong>{{ entry.newValue }}</strong></span>
+            </div>
+            <div class="cv-flag-card__audit-time">
+              {{ entry.changedAt | date:'medium' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ds-card>
+</div>
+
+<ds-card title="Activity" class="cv-feature-flags__activity">
+  <p class="cv-feature-flags__activity-subtitle">10 most recent changes across all flags</p>
+  <div *ngIf="recentActivity$ | async as activity">
+    <div *ngIf="activity.length === 0" class="cv-feature-flags__no-activity">
+      No recent activity.
+    </div>
+    <div *ngFor="let entry of activity" class="cv-feature-flags__activity-row">
+      <div class="cv-feature-flags__activity-flag">{{ getFlagName(entry.flagId) }}</div>
+      <div class="cv-feature-flags__activity-meta">
+        <span class="cv-feature-flags__activity-action">{{ formatAction(entry.action) }}</span>
+        <span class="cv-feature-flags__activity-env">{{ entry.environment }}</span>
+      </div>
+      <div class="cv-feature-flags__activity-detail">
+        {{ entry.changedBy }}
+        <span *ngIf="entry.previousValue && entry.newValue">: {{ entry.previousValue }} &rarr; {{ entry.newValue }}</span>
+        <span *ngIf="!entry.previousValue && entry.newValue">: added {{ entry.newValue }}</span>
+      </div>
+      <div class="cv-feature-flags__activity-time">
+        {{ entry.changedAt | date:'medium' }}
+      </div>
+    </div>
+  </div>
+</ds-card>
