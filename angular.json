@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "clearvault:build:production"
+              "buildTarget": "clearvault:build:production"
             },
             "development": {
-              "browserTarget": "clearvault:build:development"
+              "buildTarget": "clearvault:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
