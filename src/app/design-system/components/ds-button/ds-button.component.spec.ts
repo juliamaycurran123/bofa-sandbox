@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DesignSystemModule } from '../../design-system.module';
 import { DsButtonComponent } from './ds-button.component';
 
 describe('DsButtonComponent', () => {
@@ -9,7 +8,7 @@ describe('DsButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesignSystemModule, NoopAnimationsModule]
+      imports: [DsButtonComponent, NoopAnimationsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DsButtonComponent);

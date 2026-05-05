@@ -18,7 +18,6 @@ import { DsCurrencyComponent } from './components/ds-currency/ds-currency.compon
 import { DsPageHeaderComponent } from './components/ds-page-header/ds-page-header.component';
 
 const COMPONENTS = [
-  DsButtonComponent,
   DsCardComponent,
   DsDataTableComponent,
   DsCurrencyComponent,
@@ -48,7 +47,7 @@ const MATERIAL = [
  */
 @NgModule({
   declarations: COMPONENTS,
-  imports: [CommonModule, ...MATERIAL],
-  exports: [...COMPONENTS, ...MATERIAL]
+  imports: [CommonModule, ...MATERIAL, DsButtonComponent],
+  exports: [...COMPONENTS, ...MATERIAL, DsButtonComponent]
 })
 export class DesignSystemModule {}
