@@ -1,9 +1,12 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'ds-currency',
+  standalone: true,
+  imports: [CurrencyPipe],
   templateUrl: './ds-currency.component.html',
-  styleUrls: ['./ds-currency.component.scss'],
+  styleUrl: './ds-currency.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DsCurrencyComponent {
