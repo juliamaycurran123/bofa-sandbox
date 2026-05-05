@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -9,7 +8,7 @@ export type DsButtonSize = 'sm' | 'md' | 'lg';
 @Component({
   selector: 'ds-button',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatProgressSpinnerModule],
+  imports: [MatButtonModule, MatProgressSpinnerModule],
   templateUrl: './ds-button.component.html',
   styleUrls: ['./ds-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
