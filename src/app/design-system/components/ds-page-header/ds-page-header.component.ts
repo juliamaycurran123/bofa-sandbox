@@ -2,8 +2,9 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'ds-page-header',
+  standalone: true,
   templateUrl: './ds-page-header.component.html',
-  styleUrls: ['./ds-page-header.component.scss'],
+  styleUrl: './ds-page-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DsPageHeaderComponent {
