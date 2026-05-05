@@ -21,7 +21,10 @@ const COMPONENTS = [
   DsButtonComponent,
   DsCardComponent,
   DsDataTableComponent,
-  DsCurrencyComponent,
+  DsCurrencyComponent
+];
+
+const STANDALONE_COMPONENTS = [
   DsPageHeaderComponent
 ];
 
@@ -48,7 +51,7 @@ const MATERIAL = [
  */
 @NgModule({
   declarations: COMPONENTS,
-  imports: [CommonModule, ...MATERIAL],
-  exports: [...COMPONENTS, ...MATERIAL]
+  imports: [CommonModule, ...MATERIAL, ...STANDALONE_COMPONENTS],
+  exports: [...COMPONENTS, ...STANDALONE_COMPONENTS, ...MATERIAL]
 })
 export class DesignSystemModule {}
