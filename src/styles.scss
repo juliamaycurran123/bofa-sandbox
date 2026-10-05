@@ -3,7 +3,8 @@
 @import './app/design-system/tokens/spacing';
 
 @include mat.all-component-typographies();
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 $cv-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
 $cv-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
