@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { AnalyticsService } from '@core/analytics/analytics.service';
 
 @Component({
-  selector: 'cv-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+    selector: 'cv-settings',
+    templateUrl: './settings.component.html',
+    styleUrls: ['./settings.component.scss'],
+    standalone: false
 })
 export class SettingsComponent {
   notifications = {
