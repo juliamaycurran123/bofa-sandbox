@@ -1,10 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'ds-card',
-  templateUrl: './ds-card.component.html',
-  styleUrls: ['./ds-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'ds-card',
+    templateUrl: './ds-card.component.html',
+    styleUrls: ['./ds-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DsCardComponent {
   @Input() title?: string;
