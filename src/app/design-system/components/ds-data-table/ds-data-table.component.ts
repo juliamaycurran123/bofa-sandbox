@@ -8,10 +8,11 @@ export interface DsColumnDef {
 }
 
 @Component({
-  selector: 'ds-data-table',
-  templateUrl: './ds-data-table.component.html',
-  styleUrls: ['./ds-data-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'ds-data-table',
+    templateUrl: './ds-data-table.component.html',
+    styleUrls: ['./ds-data-table.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DsDataTableComponent {
   // NOTE: rows is any[] for historical reasons — older feature modules pass mixed shapes here.

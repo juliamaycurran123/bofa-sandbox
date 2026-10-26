@@ -6,9 +6,10 @@ import { AccountsService } from '../accounts.service';
 import { AnalyticsService } from '@core/analytics/analytics.service';
 
 @Component({
-  selector: 'cv-account-list',
-  templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.scss']
+    selector: 'cv-account-list',
+    templateUrl: './account-list.component.html',
+    styleUrls: ['./account-list.component.scss'],
+    standalone: false
 })
 export class AccountListComponent implements OnInit {
   accounts$!: Observable<Account[]>;
