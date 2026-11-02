@@ -8,9 +8,10 @@ import { DsColumnDef } from '@design-system/components/ds-data-table/ds-data-tab
 import { AnalyticsService } from '@core/analytics/analytics.service';
 
 @Component({
-  selector: 'cv-account-detail',
-  templateUrl: './account-detail.component.html',
-  styleUrls: ['./account-detail.component.scss']
+    selector: 'cv-account-detail',
+    templateUrl: './account-detail.component.html',
+    styleUrls: ['./account-detail.component.scss'],
+    standalone: false
 })
 export class AccountDetailComponent implements OnInit {
   account?: Account;
