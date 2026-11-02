@@ -13,9 +13,10 @@ interface AccountSummary {
 }
 
 @Component({
-  selector: 'cv-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+    selector: 'cv-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
+    standalone: false
 })
 export class DashboardComponent implements OnInit {
   totalBalance = 0;

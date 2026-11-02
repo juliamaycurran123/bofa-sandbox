@@ -8,9 +8,10 @@ import { MfaService } from '@core/auth/mfa.service';
 import { AnalyticsService } from '@core/analytics/analytics.service';
 
 @Component({
-  selector: 'cv-transfers',
-  templateUrl: './transfers.component.html',
-  styleUrls: ['./transfers.component.scss']
+    selector: 'cv-transfers',
+    templateUrl: './transfers.component.html',
+    styleUrls: ['./transfers.component.scss'],
+    standalone: false
 })
 export class TransfersComponent implements OnInit {
   form: FormGroup;
