@@ -4,7 +4,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   selector: 'ds-currency',
   templateUrl: './ds-currency.component.html',
   styleUrls: ['./ds-currency.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DsCurrencyComponent {
   @Input() amount: number | null = 0;

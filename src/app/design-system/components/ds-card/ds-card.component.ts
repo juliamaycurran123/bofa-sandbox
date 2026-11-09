@@ -4,7 +4,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   selector: 'ds-card',
   templateUrl: './ds-card.component.html',
   styleUrls: ['./ds-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DsCardComponent {
   @Input() title?: string;

@@ -7,7 +7,8 @@ export type DsButtonSize = 'sm' | 'md' | 'lg';
   selector: 'ds-button',
   templateUrl: './ds-button.component.html',
   styleUrls: ['./ds-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DsButtonComponent {
   @Input() variant: DsButtonVariant = 'primary';
