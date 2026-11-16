@@ -7,7 +7,8 @@ import { AnalyticsService } from '@core/analytics/analytics.service';
 @Component({
   selector: 'cv-transactions',
   templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.scss']
+  styleUrls: ['./transactions.component.scss'],
+  standalone: false
 })
 export class TransactionsComponent implements OnInit {
   search = '';

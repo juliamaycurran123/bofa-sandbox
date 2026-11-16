@@ -4,7 +4,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   selector: 'ds-page-header',
   templateUrl: './ds-page-header.component.html',
   styleUrls: ['./ds-page-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DsPageHeaderComponent {
   @Input() title!: string;
